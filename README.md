@@ -2,30 +2,27 @@
 
 Overview
 
-This module demonstrates Use Case 2 of the BookMyStay App:
+This module demonstrates Use Case 3 of the BookMyStay App:
 
-
-Room Search & Availability Check.
-It allows guests to query the hotel’s inventory without altering it. 
-The system ensures accurate availability display,
-prevents booking of unavailable rooms, and provides fast responses.
+Booking Request Handling.
+It ensures fairness when multiple guests attempt to book rooms simultaneously
+by processing requests in the order they arrive. The system uses a queue to 
+enforce FIFO (First-In-First-Out) ordering, preventing race conditions and inconsistent allocations.
 
 Features
 
-Display available room types.
-Show pricing and amenities.
-Prevent booking of rooms with zero availability.
-Read-only access to inventory data.
+Accept booking requests from guests.
+Store requests in a queue.
+Process requests sequentially in arrival order.
+Simulate synchronous handling with delays (Thread.sleep).
+
 
 Data Structures
-
-HashMap<String, Integer> → Maps room type to available count.
-HashMap<String, Double> → Maps room type to price.
+Queue<Reservation> (LinkedList) → Stores booking requests in FIFO order.
 
 
 Flow
-
-Guest sends search request.
-System looks up room type in HashMap.
-Filters rooms with count > 0.
-Displays availability, price, and amenities.
+Guest submits booking request.
+Request is enqueued.
+Requests are processed one by one in FIFO order.
+Each request is handled with simulated delay to mimic real-world operations.
