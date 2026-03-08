@@ -2,32 +2,28 @@
 
 Overview
 
-This module demonstrates Use Case 4 of the BookMyStay App:
-Reservation Confirmation & Room Allocation.
-It ensures that once a booking request is dequeued, 
-the system assigns a unique room ID, updates inventory immediately, 
-and prevents double-booking. 
-This step guarantees booking integrity and consistency across the system.
+This module demonstrates Use Case 5 of the BookMyStay App:
+Add-On Service Selection.
+It allows guests to enhance their confirmed reservations
+ (from UC4) with optional services such as breakfast, spa, airport pickup, or Wi-Fi. 
+The system uses a Map to attach multiple services to a single reservation, ensuring flexibility and personalization.
+
 
 
 Features
 
-Assign unique room IDs to each confirmed reservation.
-Prevent duplicate room allocations using a Set.
-Update room counts in inventory after allocation.
-Simulate synchronous allocation with delays (Thread.sleep).
+Attach optional services to confirmed reservations.
+Support multiple services per guest.
+Store services in a structured way for easy retrieval.
 
 Data Structures
-
-Set<String> → Stores allocated room IDs to ensure uniqueness.
-
-HashMap<String, Integer> → Tracks available room counts per room type.
+Map<String, List<String>> → Maps reservation IDs to a list of selected services.
 
 
 Flow
 
-Dequeue booking request (from UC3).
-Generate a unique room ID.
-Add room ID to Set to prevent duplicates.
-Decrement room count in HashMap.
-Confirm reservation or reject if no rooms available.
+Guest confirms reservation (UC4).
+Guest selects optional services.
+System maps reservation ID to selected services.
+Services are stored and can be retrieved for billing or reporting.
+

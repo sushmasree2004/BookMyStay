@@ -2,21 +2,21 @@ package Room;
 
 import java.util.*;
 
-class Reservation 
-{
-    String name;
-    String type;
+class Reservation {
+    String guestName;
+    String roomType;
+    String roomID;
 
-    public Reservation(String name, String type) 
-    {
-        this.name = name;
-        this.type = type;
+    public Reservation(String guestName, String roomType, String roomID) {
+        this.guestName = guestName;
+        this.roomType = roomType;
+        this.roomID = roomID;
     }
 
     @Override
-    public String toString() 
-    {
-        return "Reservation for " + name + " (Room: " + type + ")";
+    public String toString() {
+        return "Reservation confirmed for " + guestName +
+               " (Room: " + roomType + ", ID: " + roomID + ")";
     }
 }
 
