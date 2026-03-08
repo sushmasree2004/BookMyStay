@@ -29,7 +29,8 @@ public class RoomAllocator
     private HashMap<String, Integer> roomCounts;
     private Set<String> allocatedRoomIDs;
 
-    public RoomAllocator(HashMap<String, Integer> counts) {
+    public RoomAllocator(HashMap<String, Integer> counts) 
+    {
         this.roomCounts = counts;
         this.allocatedRoomIDs = new HashSet<>();
     }
@@ -65,7 +66,7 @@ public class RoomAllocator
                 Thread.sleep(1000);
             } 
             catch (InterruptedException e) 
-                {
+            {
                 Thread.currentThread().interrupt();
             }
 
