@@ -35,17 +35,21 @@ public class RoomAllocator
     }
 
     // Generate unique room ID
-    private String generateRoomID(String roomType) {
+    private String generateRoomID(String roomType) 
+    {
         return roomType + "-" + UUID.randomUUID().toString().substring(0, 6);
     }
 
     // Confirm reservation with sleep-based synchronous handling
-    public synchronized Reservation confirmReservation(String guestName, String roomType) {
-        if (roomCounts.getOrDefault(roomType, 0) > 0) {
+    public synchronized Reservation confirmReservation(String guestName, String roomType) 
+    {
+        if (roomCounts.getOrDefault(roomType, 0) > 0) 
+        {
             String roomID = generateRoomID(roomType);
 
             // Ensure uniqueness
-            while (allocatedRoomIDs.contains(roomID)) {
+            while (allocatedRoomIDs.contains(roomID))
+            {
                 roomID = generateRoomID(roomType);
             }
 
@@ -55,21 +59,27 @@ public class RoomAllocator
             Reservation reservation = new Reservation(guestName, roomType, roomID);
             System.out.println(reservation);
 
-            try {
+            try 
+            {
                 // Simulate allocation delay (e.g., DB update, payment confirmation)
                 Thread.sleep(1000);
-            } catch (InterruptedException e) {
+            } 
+            catch (InterruptedException e) 
+                {
                 Thread.currentThread().interrupt();
             }
 
             return reservation;
-        } else {
+        }
+        else 
+        {
             System.out.println("No rooms available for type: " + roomType);
             return null;
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) 
+    {
         HashMap<String, Integer> counts = new HashMap<>();
         counts.put("Single", 2);
         counts.put("Double", 1);
