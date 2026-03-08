@@ -3,32 +3,40 @@
 
 Overview
 
-This module demonstrates Use Case 6 of the BookMyStay App:
-Booking History & Reporting.
-It stores all confirmed reservations (from UC4) along with optional services 
-(from UC5) into a booking history log. The system can then generate reports for management, 
-such as a full booking list or aggregated counts by room type.
+The BookMyStay App is a Core Java project designed to simulate a hotel booking system. 
+It demonstrates six incremental Use Cases (UC1–UC6), 
+each building on the previous one to create a complete workflow 
+from room inventory setup to booking history and reporting.
+
+
+Use Case Flow
+
+UC1 – Room Inventory Setup  
+Initialize room types, counts, and prices using HashMap.
+
+UC2 – Room Search & Availability Check  
+Guests query available rooms; system displays only bookable options.
+
+UC3 – Booking Request (Queue)  
+Requests are enqueued and processed in FIFO order to ensure fairness.
+
+UC4 – Reservation Confirmation & Room Allocation  
+Assign unique room IDs, update inventory, and confirm reservations.
+
+UC5 – Add-On Service Selection  
+Guests attach optional services (e.g., breakfast, spa, Wi-Fi) to reservations.
+
+UC6 – Booking History & Reporting  
+Store confirmed reservations with services and generate reports.
+
+
 
 
 Features
 
-Maintain a booking history of all reservations.
-Store guest details, room type, unique room ID, and selected services.
-Generate reports showing all reservations.
-Provide summary counts by room type.
-
-Data Structures
-
-List<Reservation> → Stores all reservations in chronological order.
-Map<String, Integer> → Used for reporting counts by room type.
-
-
-.
-
-Flow
-
-Reservation confirmed in UC4.
-Services attached in UC5.
-Reservation stored in booking history.
-Reports generated for management.
-
+Inventory Management → Prevents overbooking.
+Availability Check → Guests see only valid options.
+Fair Queueing → First-come-first-served booking.
+Unique Allocation → No duplicate room IDs.
+Service Add-ons → Personalized guest experience.
+Reporting → Booking history and analytics by room type.
