@@ -1,29 +1,34 @@
 # BookMyStay
 
+
 Overview
 
-This module demonstrates Use Case 5 of the BookMyStay App:
-Add-On Service Selection.
-It allows guests to enhance their confirmed reservations
- (from UC4) with optional services such as breakfast, spa, airport pickup, or Wi-Fi. 
-The system uses a Map to attach multiple services to a single reservation, ensuring flexibility and personalization.
-
+This module demonstrates Use Case 6 of the BookMyStay App:
+Booking History & Reporting.
+It stores all confirmed reservations (from UC4) along with optional services 
+(from UC5) into a booking history log. The system can then generate reports for management, 
+such as a full booking list or aggregated counts by room type.
 
 
 Features
 
-Attach optional services to confirmed reservations.
-Support multiple services per guest.
-Store services in a structured way for easy retrieval.
+Maintain a booking history of all reservations.
+Store guest details, room type, unique room ID, and selected services.
+Generate reports showing all reservations.
+Provide summary counts by room type.
 
 Data Structures
-Map<String, List<String>> → Maps reservation IDs to a list of selected services.
 
+List<Reservation> → Stores all reservations in chronological order.
+Map<String, Integer> → Used for reporting counts by room type.
+
+
+.
 
 Flow
 
-Guest confirms reservation (UC4).
-Guest selects optional services.
-System maps reservation ID to selected services.
-Services are stored and can be retrieved for billing or reporting.
+Reservation confirmed in UC4.
+Services attached in UC5.
+Reservation stored in booking history.
+Reports generated for management.
 
